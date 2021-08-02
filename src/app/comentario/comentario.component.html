@@ -1,0 +1,52 @@
+<div class="h-100 p-5 text-white bg-dark rounded-3">
+    <h1 class="display-4">{{post.nombre}}</h1>
+    <p class="lead">{{post.texto}}</p>
+    <hr class="my-4">
+
+    <p>{{post.descripcion}}</p>
+
+    <h5>Comentarios:</h5>
+
+    <ul>
+        <li *ngFor='let c of post.comentarios'>
+            <p>{{ c.comentario}}</p>
+            <p><small><strong>Publicado por: {{ c.nombre}}</strong></small></p>
+            <p><small>{{c.fecha | date}}</small></p>
+        </li>
+    </ul>
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Agregar comentario
+    </button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Agregar comentario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input [(ngModel)]="nombre" name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+                        <div id="nombre" class="form-text">Coloque su nombre </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="post" class="form-label">Comentario</label>
+                        <input [(ngModel)]="comentario" name="comentario" type="text" class="form-control" id="comentario"
+                            placeholder="Post">
+                        <div id="nombre" class="form-text">Coloque su comentario </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button (click)="enviar()" type="button" class="btn btn-primary" data-bs-dismiss="modal">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="h-100 p-5 text-white bg-dark rounded-3">
+    <h1 class="display-4">{{post.nombre}}</h1>
+    <p class="lead">{{post.texto}}</p>
+    <hr class="my-4">
+    <h5>{{post.fecha | date}}</h5>
+    <!-- <ul>
+        <li *ngFor='let c of post.comentarios'>
+            <p>{{ c.comentario}}</p>
+            <p><small><strong>Publicado por: {{ c.nombre}}</strong></small></p>
+            <p><small>{{c.fecha | date}}</small></p>
+        </li>
+    </ul> -->
+    <button type="button" class="btn btn-primary" [routerLink]="['/post/', post.id]">
+        Ver Post
+    </button>
+</div>
+<!-- <app-comentario [post] ="post"></app-comentario> -->
